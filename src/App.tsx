@@ -1159,18 +1159,21 @@ function App() {
   const nextSlide = useCallback(() => {
     if (currentSlide < slides.length - 1) {
       setCurrentSlide(prev => prev + 1);
+      window.scrollTo(0, 0);
     }
   }, [currentSlide, slides.length]);
 
   const prevSlide = useCallback(() => {
     if (currentSlide > 0) {
       setCurrentSlide(prev => prev - 1);
+      window.scrollTo(0, 0);
     }
   }, [currentSlide]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
     setShowMenu(false);
+    window.scrollTo(0, 0);
   };
 
   // Keyboard navigation
