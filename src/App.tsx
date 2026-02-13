@@ -16,7 +16,6 @@ import {
   Copy,
   Check,
   Mic,
-  Image as ImageIcon,
   Globe,
   Brain,
   BookOpen,
