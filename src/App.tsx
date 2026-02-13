@@ -891,7 +891,7 @@ const ImageRecognitionSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
             <ChevronLeft className="inline mr-2" /> Back
           </button>
           <button onClick={onNext} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg text-lg">
-            Next: Practice Examples <ChevronRight className="inline ml-2" />
+            Next: Safety Tips <ChevronRight className="inline ml-2" />
           </button>
         </div>
       </div>
@@ -899,7 +899,7 @@ const ImageRecognitionSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
   );
 };
 
-// Slide 9: Practice Examples
+// Slide 9: Try It Out Now!
 const PracticeSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
   const [animated, setAnimated] = useState(false);
 
@@ -907,108 +907,214 @@ const PracticeSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
     if (isActive) setTimeout(() => setAnimated(true), 100);
   }, [isActive]);
 
-  const practices = [
-    {
-      category: "Health & Wellness",
-      icon: Heart,
-      prompts: [
-        "Explain what high blood pressure means in simple terms",
-        "What are gentle exercises I can do at home for 15 minutes daily?",
-        "Suggest a weekly meal plan for heart-healthy eating",
-      ],
-    },
-    {
-      category: "Family & Communication",
-      icon: MessageSquare,
-      prompts: [
-        "Write a birthday message for my 10-year-old grandchild",
-        "Help me write an email to my doctor asking for a prescription refill",
-        "Explain what TikTok is in simple terms",
-      ],
-    },
-    {
-      category: "Daily Life",
-      icon: Settings,
-      prompts: [
-        "I have chicken, rice, and broccoli. What can I make?",
-        "What are the best streaming services for classic movies?",
-        "Help me plan a 3-day trip that's easy to navigate",
-      ],
-    },
-  ];
-
   return (
-    <div className="slide-container bg-white">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-10">
-          <span className={`inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4 transition-all duration-500 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-            Lesson 8 of 10
+    <div className="slide-container bg-gradient-to-br from-green-50 to-blue-50">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <span className={`inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4 transition-all duration-500 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+            Lesson 9 & 10 of 10
           </span>
           <h2 className={`text-3xl sm:text-4xl font-bold text-gray-800 transition-all duration-700 delay-100 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Try These Examples!
+            Try It Out Now!
           </h2>
-          <p className={`text-gray-600 mt-4 transition-all duration-700 delay-200 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-            Click copy, then paste into Gemini or ChatGPT
+          <p className={`text-gray-600 mt-4 text-lg transition-all duration-700 delay-200 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+            Let's practice what you've learned with three hands-on activities
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {practices.map((practice, i) => (
-            <div 
-              key={i}
-              className={`bg-gray-50 rounded-2xl shadow-lg overflow-hidden transition-all duration-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-              style={{ transitionDelay: `${300 + i * 100}ms` }}
-            >
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white">
-                <div className="flex items-center gap-3">
-                  <practice.icon className="w-6 h-6" />
-                  <h3 className="font-bold">{practice.category}</h3>
+        <div className="space-y-6">
+          {/* Activity 1: Chat with Gemini */}
+          <div className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 ${animated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{ transitionDelay: '300ms' }}>
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold">1</div>
+                <div>
+                  <h3 className="text-2xl font-bold">Chat with Gemini</h3>
+                  <p className="text-blue-100">Practice asking questions to AI</p>
                 </div>
               </div>
-              <div className="p-4 space-y-3">
-                {practice.prompts.map((prompt, j) => (
-                  <div key={j} className="bg-white rounded-lg p-3 text-sm border">
-                    <p className="text-gray-700 mb-2">"{prompt}"</p>
-                    <div className="flex justify-end">
-                      <CopyButton text={prompt} />
-                    </div>
-                  </div>
-                ))}
+            </div>
+            <div className="p-6">
+              <div className="mb-4">
+                <h4 className="font-bold text-gray-800 mb-2 text-lg">📝 What to do:</h4>
+                <ol className="list-decimal list-inside space-y-2 text-gray-700">
+                  <li>Go to <span className="font-semibold text-blue-600">gemini.google.com</span></li>
+                  <li>Sign in with your Google account (if needed)</li>
+                  <li>Try asking one of these questions:</li>
+                </ol>
+              </div>
+
+              <div className="space-y-3 mb-4">
+                <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                  <p className="text-gray-800 mb-2">💬 "What are 5 simple exercises I can do at home for 10 minutes daily?"</p>
+                  <CopyButton text="What are 5 simple exercises I can do at home for 10 minutes daily?" />
+                </div>
+                <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                  <p className="text-gray-800 mb-2">💬 "Explain what a podcast is in simple terms"</p>
+                  <CopyButton text="Explain what a podcast is in simple terms" />
+                </div>
+                <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                  <p className="text-gray-800 mb-2">💬 "I have chicken, potatoes, and carrots. What can I cook?"</p>
+                  <CopyButton text="I have chicken, potatoes, and carrots. What can I cook?" />
+                </div>
+              </div>
+
+              <a 
+                href="https://gemini.google.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-all shadow-md"
+              >
+                Open Gemini <ExternalLink className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Activity 2: ChatGPT Image Recognition */}
+          <div className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 ${animated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{ transitionDelay: '400ms' }}>
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 p-6 text-white">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold">2</div>
+                <div>
+                  <h3 className="text-2xl font-bold">ChatGPT Image Recognition</h3>
+                  <p className="text-orange-100">Upload a photo and ask about it</p>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+            <div className="p-6">
+              <div className="mb-4">
+                <h4 className="font-bold text-gray-800 mb-2 text-lg">📸 What to do:</h4>
+                <ol className="list-decimal list-inside space-y-2 text-gray-700">
+                  <li>Go to <span className="font-semibold text-green-600">chatgpt.com</span></li>
+                  <li>Click the <span className="font-semibold">📎 paperclip icon</span> at the bottom</li>
+                  <li>Upload a photo (or take one)</li>
+                  <li>Ask ChatGPT about the photo</li>
+                </ol>
+              </div>
 
-        {/* Try It Box */}
-        <div className={`mt-8 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-6 text-white text-center transition-all duration-700 delay-600 ${animated ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <h3 className="text-xl font-bold mb-3">Ready to Try?</h3>
-          <p className="mb-4">Open Gemini or ChatGPT and try one of these prompts!</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href="https://gemini.google.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition-all"
-            >
-              Open Gemini <ExternalLink className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://chatgpt.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-green-50 transition-all"
-            >
-              Open ChatGPT <ExternalLink className="w-5 h-5" />
-            </a>
+              <div className="bg-orange-50 rounded-lg p-4 mb-4 border-l-4 border-orange-500">
+                <h4 className="font-bold text-gray-800 mb-2">💡 Photo Ideas to Try:</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span>🌿</span>
+                    <span>Take a photo of a <span className="font-semibold">plant or flower</span> and ask "What is this plant?"</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>📋</span>
+                    <span>Photo of a <span className="font-semibold">food label or document</span> and ask "Read this for me"</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>🍎</span>
+                    <span>Photo of <span className="font-semibold">ingredients</span> and ask "What can I make with these?"</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>🔧</span>
+                    <span>Photo of a <span className="font-semibold">remote control</span> and ask "What does each button do?"</span>
+                  </li>
+                </ul>
+              </div>
+
+              <a 
+                href="https://chatgpt.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition-all shadow-md"
+              >
+                Open ChatGPT <ExternalLink className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Activity 3: Create a Gem */}
+          <div className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 ${animated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{ transitionDelay: '500ms' }}>
+            <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-white">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold">3</div>
+                <div>
+                  <h3 className="text-2xl font-bold">Create Your First Gem</h3>
+                  <p className="text-purple-100">Make a custom AI assistant in Gemini</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="mb-4">
+                <h4 className="font-bold text-gray-800 mb-2 text-lg">✨ What to do:</h4>
+                <ol className="list-decimal list-inside space-y-2 text-gray-700">
+                  <li>Go to <span className="font-semibold text-blue-600">gemini.google.com</span></li>
+                  <li>Look for <span className="font-semibold">⭐ "Gem manager"</span> on the left side</li>
+                  <li>Click <span className="font-semibold">"New Gem"</span></li>
+                  <li>Give it a name and instructions</li>
+                  <li>Click <span className="font-semibold">"Save"</span> and start chatting!</li>
+                </ol>
+              </div>
+
+              <div className="bg-purple-50 rounded-lg p-4 mb-4 border-l-4 border-purple-500">
+                <h4 className="font-bold text-gray-800 mb-3">💎 Try Creating One of These Gems:</h4>
+                
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 className="font-bold text-purple-700 mb-2">📚 "Simple Explainer"</h5>
+                    <p className="text-sm text-gray-600 mb-2">Perfect for understanding complicated topics</p>
+                    <div className="bg-gray-50 p-3 rounded text-sm text-gray-700">
+                      <p className="font-semibold mb-1">Instructions to copy:</p>
+                      <p className="italic">"You are a helpful assistant who explains everything in very simple terms. Use short sentences and everyday words. Never use technical jargon. Give examples to help me understand."</p>
+                      <div className="flex justify-end mt-2">
+                        <CopyButton text="You are a helpful assistant who explains everything in very simple terms. Use short sentences and everyday words. Never use technical jargon. Give examples to help me understand." />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 className="font-bold text-purple-700 mb-2">👨‍🍳 "Recipe Helper"</h5>
+                    <p className="text-sm text-gray-600 mb-2">Get recipe ideas from what you have</p>
+                    <div className="bg-gray-50 p-3 rounded text-sm text-gray-700">
+                      <p className="font-semibold mb-1">Instructions to copy:</p>
+                      <p className="italic">"You are a friendly cooking assistant. When I tell you what ingredients I have, suggest simple recipes that are easy to follow. Give clear step-by-step instructions. Include cooking times and temperatures."</p>
+                      <div className="flex justify-end mt-2">
+                        <CopyButton text="You are a friendly cooking assistant. When I tell you what ingredients I have, suggest simple recipes that are easy to follow. Give clear step-by-step instructions. Include cooking times and temperatures." />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 className="font-bold text-purple-700 mb-2">✍️ "Letter Writer"</h5>
+                    <p className="text-sm text-gray-600 mb-2">Help writing emails and messages</p>
+                    <div className="bg-gray-50 p-3 rounded text-sm text-gray-700">
+                      <p className="font-semibold mb-1">Instructions to copy:</p>
+                      <p className="italic">"You help me write polite emails and letters. Ask me who I'm writing to and what I want to say. Then write it in a clear, friendly, and respectful way. Keep it brief and easy to read."</p>
+                      <div className="flex justify-end mt-2">
+                        <CopyButton text="You help me write polite emails and letters. Ask me who I'm writing to and what I want to say. Then write it in a clear, friendly, and respectful way. Keep it brief and easy to read." />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a 
+                href="https://gemini.google.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition-all shadow-md"
+              >
+                Open Gemini <ExternalLink className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className={`flex justify-center gap-4 mt-8 transition-all duration-500 delay-700 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-          <button onClick={onPrev} className="px-8 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all">
+        {/* Encouragement Box */}
+        <div className={`mt-8 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-6 text-white text-center transition-all duration-700 delay-700 ${animated ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <h3 className="text-2xl font-bold mb-3">🎉 You're Doing Great!</h3>
+          <p className="text-lg text-green-50 mb-2">Take your time with each activity.</p>
+          <p className="text-green-50">There's no rush - practice as much as you like!</p>
+        </div>
+
+        <div className={`flex justify-center gap-4 mt-8 transition-all duration-500 delay-800 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <button onClick={onPrev} className="px-8 py-4 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all text-lg">
             <ChevronLeft className="inline mr-2" /> Back
           </button>
-          <button onClick={onNext} className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg">
-            Next: Safety Tips <ChevronRight className="inline ml-2" />
+          <button onClick={onNext} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg text-lg">
+            Next: Try It Out! <ChevronRight className="inline ml-2" />
           </button>
         </div>
       </div>
@@ -1036,7 +1142,7 @@ const SafetySlide = ({ isActive }: SlideProps) => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
           <span className={`inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 transition-all duration-500 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-            Lesson 9 & 10 of 10
+            Lesson 8 of 10
           </span>
           <h2 className={`text-3xl sm:text-4xl font-bold transition-all duration-700 delay-100 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Safety Tips & Quick Comparison
@@ -1152,8 +1258,8 @@ function App() {
     { component: CreatingGemsSlide, title: "Create Gems" },
     { component: ChatGPTSlide, title: "Meet ChatGPT" },
     { component: ImageRecognitionSlide, title: "Image Recognition" },
-    { component: PracticeSlide, title: "Practice" },
     { component: SafetySlide, title: "Safety & Finish" },
+    { component: PracticeSlide, title: "Try It Out Now!" },
   ];
 
   const nextSlide = useCallback(() => {
