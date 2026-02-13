@@ -165,9 +165,31 @@ const WhatIsAISlide = ({ isActive, onNext, onPrev }: SlideProps) => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-gray-800 mb-3">AI = Artificial Intelligence</h3>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed mb-3">
                 AI is computer technology that can understand questions, have conversations, write text, analyze images, and help with many tasks—just by typing or speaking to it naturally.
               </p>
+              <p className="text-gray-600 leading-relaxed">
+                Think of AI as a very smart assistant that's always available to help. It has read millions of books, articles, and websites, so it knows about almost any topic. You can ask it questions in plain English, and it will respond in a helpful, friendly way.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Real World Examples */}
+        <div className={`bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-6 mb-6 transition-all duration-700 delay-300 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <h4 className="font-bold text-gray-800 mb-4 text-lg">💡 What Can AI Help You With?</h4>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-white rounded-xl p-4">
+              <p className="text-gray-700"><span className="font-semibold">💬 Answer questions:</span> "What's the weather like?" or "How do I cook salmon?"</p>
+            </div>
+            <div className="bg-white rounded-xl p-4">
+              <p className="text-gray-700"><span className="font-semibold">✍️ Write messages:</span> Help compose emails, birthday cards, or thank you notes</p>
+            </div>
+            <div className="bg-white rounded-xl p-4">
+              <p className="text-gray-700"><span className="font-semibold">📚 Explain things:</span> Break down complex topics into simple language</p>
+            </div>
+            <div className="bg-white rounded-xl p-4">
+              <p className="text-gray-700"><span className="font-semibold">🎯 Give suggestions:</span> Recommend recipes, activities, or gift ideas</p>
             </div>
           </div>
         </div>
@@ -182,7 +204,7 @@ const WhatIsAISlide = ({ isActive, onNext, onPrev }: SlideProps) => {
             <div 
               key={i}
               className={`bg-white rounded-2xl p-6 shadow-md text-center transition-all duration-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-              style={{ transitionDelay: `${300 + i * 100}ms` }}
+              style={{ transitionDelay: `${400 + i * 100}ms` }}
             >
               <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <item.icon className="w-7 h-7 text-blue-600" />
@@ -193,7 +215,7 @@ const WhatIsAISlide = ({ isActive, onNext, onPrev }: SlideProps) => {
           ))}
         </div>
 
-        <div className={`bg-blue-50 rounded-2xl p-6 transition-all duration-700 delay-600 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`bg-blue-50 rounded-2xl p-6 transition-all duration-700 delay-700 ${animated ? 'opacity-100' : 'opacity-0'}`}>
           <h4 className="font-bold text-blue-800 mb-3 flex items-center gap-2">
             <CheckCircle className="w-5 h-5" /> You Might Already Be Using AI:
           </h4>
@@ -207,7 +229,7 @@ const WhatIsAISlide = ({ isActive, onNext, onPrev }: SlideProps) => {
           </ul>
         </div>
 
-        <div className={`flex justify-center gap-4 mt-8 transition-all duration-500 delay-700 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`flex justify-center gap-4 mt-8 transition-all duration-500 delay-800 ${animated ? 'opacity-100' : 'opacity-0'}`}>
           <button onClick={onPrev} className="px-8 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all">
             <ChevronLeft className="inline mr-2" /> Back
           </button>
@@ -247,8 +269,16 @@ const GeminiOverviewSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
           <h2 className={`text-3xl sm:text-4xl font-bold text-gray-800 transition-all duration-700 delay-100 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Meet Google Gemini
           </h2>
-          <p className={`text-gray-600 mt-4 transition-all duration-700 delay-200 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-            Google's AI assistant with powerful features
+          <p className={`text-gray-600 mt-4 text-lg transition-all duration-700 delay-200 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+            Google's friendly AI assistant - Free to use and easy to learn!
+          </p>
+        </div>
+
+        {/* Why Gemini */}
+        <div className={`bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 mb-8 transition-all duration-700 delay-250 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <h3 className="text-xl font-bold text-gray-800 mb-3">✨ Why We're Learning Gemini</h3>
+          <p className="text-gray-700 leading-relaxed">
+            Gemini is made by Google, the same company behind Google Search. It's <span className="font-semibold">completely free to use</span>, works on your phone, tablet, or computer, and understands your questions in natural, everyday language. Best of all, it connects with other Google services you might already use like Gmail, Google Docs, and Google Photos!
           </p>
         </div>
 
@@ -275,17 +305,17 @@ const GeminiOverviewSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
               <Mic className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Voice Input (Great for Easy Use!)</h3>
+              <h3 className="text-xl font-bold mb-2">🎤 Voice Input (Perfect if You Don't Like Typing!)</h3>
               <p className="text-blue-100 mb-4">
-                Instead of typing, just tap the microphone icon and speak your question. Gemini will understand and respond!
+                Instead of typing, just tap the microphone icon and speak your question. Gemini will understand your voice and respond - it's like having a conversation with a helpful friend!
               </p>
               <div className="bg-white/10 rounded-xl p-4">
-                <p className="text-sm text-blue-200 mb-2">How to use voice:</p>
-                <ol className="text-sm space-y-1">
-                  <li>1. Open Gemini on your phone or computer</li>
-                  <li>2. Look for the microphone icon 🎤</li>
-                  <li>3. Tap it and speak clearly</li>
-                  <li>4. Gemini will transcribe and answer</li>
+                <p className="text-sm font-semibold text-blue-200 mb-2">How to use voice (4 easy steps):</p>
+                <ol className="text-sm space-y-2">
+                  <li className="flex gap-2"><span className="font-bold">1.</span> Open Gemini on your phone or computer</li>
+                  <li className="flex gap-2"><span className="font-bold">2.</span> Look for the microphone icon 🎤 in the chat box</li>
+                  <li className="flex gap-2"><span className="font-bold">3.</span> Tap it and speak your question clearly</li>
+                  <li className="flex gap-2"><span className="font-bold">4.</span> Gemini will transcribe your words and answer!</li>
                 </ol>
               </div>
             </div>
@@ -1125,7 +1155,7 @@ const PracticeSlide = ({ isActive, onPrev }: SlideProps) => {
               Try ChatGPT <ExternalLink className="w-5 h-5" />
             </a>
             <button onClick={() => window.location.reload()} className="px-6 py-3 rounded-full font-semibold border-2 border-white text-white hover:bg-white/10 transition-all">
-              Start Over
+              Continue Learning
             </button>
           </div>
         </div>
