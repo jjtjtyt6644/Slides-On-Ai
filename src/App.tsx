@@ -899,7 +899,7 @@ const ImageRecognitionSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
 };
 
 // Slide 9: Try It Out Now!
-const PracticeSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
+const PracticeSlide = ({ isActive, onPrev }: SlideProps) => {
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
@@ -1103,17 +1103,43 @@ const PracticeSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
 
         {/* Encouragement Box */}
         <div className={`mt-8 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-6 text-white text-center transition-all duration-700 delay-700 ${animated ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <h3 className="text-2xl font-bold mb-3">🎉 You're Doing Great!</h3>
-          <p className="text-lg text-green-50 mb-2">Take your time with each activity.</p>
-          <p className="text-green-50">There's no rush - practice as much as you like!</p>
+          <h3 className="text-2xl font-bold mb-3">🎉 Congratulations!</h3>
+          <p className="text-lg text-green-50 mb-2">You've completed the AI Course!</p>
+          <p className="text-green-50">You now know how to use Gemini and ChatGPT, ask good questions, create Gems, and use image recognition.</p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <a 
+              href="https://gemini.google.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition-all shadow-lg inline-flex items-center gap-2"
+            >
+              Try Gemini <ExternalLink className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://chatgpt.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-green-50 transition-all shadow-lg inline-flex items-center gap-2"
+            >
+              Try ChatGPT <ExternalLink className="w-5 h-5" />
+            </a>
+            <button onClick={() => window.location.reload()} className="px-6 py-3 rounded-full font-semibold border-2 border-white text-white hover:bg-white/10 transition-all">
+              Start Over
+            </button>
+          </div>
         </div>
 
-        <div className={`flex justify-center gap-4 mt-8 transition-all duration-500 delay-800 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Footer */}
+        <div className={`text-center mt-10 text-gray-600 transition-all duration-700 delay-1000 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="flex items-center justify-center gap-2">
+            Made with <Heart className="w-4 h-4 text-red-500" /> for learning AI
+          </p>
+        </div>
+
+        <div className={`flex justify-center mt-8 transition-all duration-500 delay-800 ${animated ? 'opacity-100' : 'opacity-0'}`}>
           <button onClick={onPrev} className="px-8 py-4 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all text-lg">
             <ChevronLeft className="inline mr-2" /> Back
-          </button>
-          <button onClick={onNext} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg text-lg">
-            Next: Try It Out! <ChevronRight className="inline ml-2" />
           </button>
         </div>
       </div>
