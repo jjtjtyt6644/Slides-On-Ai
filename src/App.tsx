@@ -8,7 +8,6 @@ import {
   Heart, 
   Wand2,
   UserCircle,
-  Settings,
   CheckCircle,
   Menu,
   X,
