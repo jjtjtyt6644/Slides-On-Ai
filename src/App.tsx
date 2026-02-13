@@ -707,86 +707,191 @@ const ImageRecognitionSlide = ({ isActive, onNext, onPrev }: SlideProps) => {
     if (isActive) setTimeout(() => setAnimated(true), 100);
   }, [isActive]);
 
-  const useCases = [
-    { title: "Identify Objects", desc: "Take a photo of something and ask what it is" },
-    { title: "Read Text", desc: "Photograph a document and have it transcribed" },
-    { title: "Describe Scenes", desc: "Upload a photo and get a detailed description" },
-    { title: "Analyze Charts", desc: "Upload graphs or charts for explanation" },
-    { title: "Check Food", desc: "Photograph ingredients for recipe ideas" },
-    { title: "Translate Signs", desc: "Photograph foreign text for translation" },
+  const realExamples = [
+    { 
+      icon: "🌱",
+      title: "Identify Plants", 
+      example: "Take a photo of a flower in your garden",
+      question: "What kind of plant is this? Is it safe for pets?"
+    },
+    { 
+      icon: "💊",
+      title: "Read Medicine Labels", 
+      example: "Photo of your prescription bottle",
+      question: "What does this medicine label say? What are the instructions?"
+    },
+    { 
+      icon: "📋",
+      title: "Read Small Print", 
+      example: "Photo of a document or letter",
+      question: "Can you read this text to me and summarize what it says?"
+    },
+    { 
+      icon: "🍲",
+      title: "Identify Food", 
+      example: "Photo of ingredients in your fridge",
+      question: "What meals can I make with these ingredients?"
+    },
+    { 
+      icon: "🔧",
+      title: "Fix Things", 
+      example: "Photo of a broken appliance or remote",
+      question: "How do I fix this? What button do I press?"
+    },
+    { 
+      icon: "🗺️",
+      title: "Translate Signs", 
+      example: "Photo of foreign text or signs",
+      question: "What does this sign say? Translate it to English."
+    },
   ];
 
   return (
     <div className="slide-container bg-gray-50">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-10">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-8">
           <span className={`inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4 transition-all duration-500 ${animated ? 'opacity-100' : 'opacity-0'}`}>
             Lesson 7 of 10
           </span>
           <h2 className={`text-3xl sm:text-4xl font-bold text-gray-800 transition-all duration-700 delay-100 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Using Image Recognition
+            Using Image Recognition in ChatGPT
           </h2>
-          <p className={`text-gray-600 mt-4 transition-all duration-700 delay-200 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-            Show AI a picture and get instant answers
+          <p className={`text-gray-600 mt-4 text-lg transition-all duration-700 delay-200 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+            Show ChatGPT a picture and get instant answers about what's in it
           </p>
         </div>
 
-        {/* How it Works */}
-        <div className={`bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-6 text-white mb-8 transition-all duration-700 delay-300 ${animated ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Camera className="w-6 h-6" /> How Image Recognition Works
+        {/* What is it? */}
+        <div className={`bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-6 text-white mb-6 transition-all duration-700 delay-300 ${animated ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+            <Camera className="w-6 h-6" /> What is Image Recognition?
           </h3>
-          <p className="text-orange-100 mb-4">
-            Both ChatGPT and Gemini can "see" and understand images you upload. Just take or upload a photo, and ask questions about it!
+          <p className="text-orange-100 text-lg leading-relaxed">
+            ChatGPT can "see" and understand photos you show it. Take a picture with your phone or tablet, upload it to ChatGPT, and ask questions about it. It's like having someone look at the photo and explain it to you!
           </p>
         </div>
 
-        {/* Steps */}
-        <h3 className={`text-xl font-bold text-gray-800 mb-4 transition-all duration-700 delay-400 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-          How to Use Image Recognition:
-        </h3>
+        {/* Step by Step Guide */}
+        <div className={`bg-white rounded-2xl p-6 shadow-sm mb-6 transition-all duration-700 delay-400 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <h3 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+            <CheckCircle className="w-6 h-6 text-orange-500" /> Step-by-Step: How to Use It
+          </h3>
 
-        <div className="space-y-4 mb-8">
-          {[
-            { step: "Click the camera/attachment icon in the chat box", detail: "Look for a paperclip or camera icon" },
-            { step: "Select 'Upload Image' or take a photo", detail: "Choose from your gallery or take a new picture" },
-            { step: "Type your question about the image", detail: "Example: 'What is this plant?' or 'Read this text for me'" },
-            { step: "Get your answer!", detail: "AI will analyze the image and respond" }
-          ].map((item, i) => (
-            <div 
-              key={i}
-              className={`flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm transition-all duration-500 ${animated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'}`}
-              style={{ transitionDelay: `${500 + i * 100}ms` }}
-            >
-              <div className="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">{i + 1}</div>
-              <div>
-                <p className="font-semibold text-gray-800">{item.step}</p>
-                <p className="text-gray-500 text-sm">{item.detail}</p>
+          <div className="space-y-5">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">1</div>
+              <div className="flex-1">
+                <p className="font-bold text-gray-800 text-lg mb-2">Open ChatGPT</p>
+                <p className="text-gray-600">Go to <span className="font-semibold">chatgpt.com</span> or open the ChatGPT app on your phone</p>
               </div>
             </div>
-          ))}
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">2</div>
+              <div className="flex-1">
+                <p className="font-bold text-gray-800 text-lg mb-2">Find the Camera Icon</p>
+                <p className="text-gray-600 mb-2">In the chat box at the bottom, look for one of these:</p>
+                <div className="bg-orange-50 p-3 rounded-lg">
+                  <p className="text-gray-700">📎 <span className="font-semibold">Paperclip icon</span> - Click this, then choose "Upload from device"</p>
+                  <p className="text-gray-700 mt-1">📷 <span className="font-semibold">Camera icon</span> - Click to take a photo or upload one</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">3</div>
+              <div className="flex-1">
+                <p className="font-bold text-gray-800 text-lg mb-2">Choose Your Photo</p>
+                <p className="text-gray-600">You can either:</p>
+                <ul className="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                  <li><span className="font-semibold">Take a new photo</span> with your camera</li>
+                  <li><span className="font-semibold">Upload an existing photo</span> from your gallery</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">4</div>
+              <div className="flex-1">
+                <p className="font-bold text-gray-800 text-lg mb-2">Ask Your Question</p>
+                <p className="text-gray-600 mb-2">Type what you want to know about the image. Examples:</p>
+                <div className="bg-blue-50 p-3 rounded-lg space-y-2">
+                  <p className="text-gray-700">💬 "What is this plant called?"</p>
+                  <p className="text-gray-700">💬 "Read this label for me"</p>
+                  <p className="text-gray-700">💬 "What does this say?"</p>
+                  <p className="text-gray-700">💬 "Explain what's in this picture"</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">5</div>
+              <div className="flex-1">
+                <p className="font-bold text-gray-800 text-lg mb-2">Press Send and Wait</p>
+                <p className="text-gray-600">ChatGPT will look at your photo and give you an answer in a few seconds!</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Use Cases */}
-        <div className={`bg-orange-50 rounded-2xl p-6 transition-all duration-700 delay-900 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-          <h4 className="font-bold text-orange-800 mb-4 flex items-center gap-2">
-            <ImageIcon className="w-5 h-5" /> Things You Can Do:
-          </h4>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {useCases.map((use, i) => (
-              <div key={i} className="bg-white rounded-xl p-4 shadow-sm">
-                <p className="font-semibold text-gray-800">{use.title}</p>
-                <p className="text-gray-600 text-sm">{use.desc}</p>
+        {/* Real Life Examples */}
+        <div className={`bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 mb-6 transition-all duration-700 delay-600 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <h3 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+            <Lightbulb className="w-6 h-6 text-orange-500" /> Real-Life Examples You Can Try
+          </h3>
+          
+          <div className="grid sm:grid-cols-2 gap-4">
+            {realExamples.map((example, i) => (
+              <div 
+                key={i} 
+                className="bg-white rounded-xl p-5 shadow-sm transition-all duration-500 hover:shadow-md"
+                style={{ transitionDelay: `${700 + i * 50}ms` }}
+              >
+                <div className="text-3xl mb-3">{example.icon}</div>
+                <h4 className="font-bold text-gray-800 mb-2">{example.title}</h4>
+                <p className="text-gray-600 text-sm mb-2">
+                  <span className="font-semibold">Example: </span>{example.example}
+                </p>
+                <div className="bg-blue-50 p-3 rounded-lg mt-3">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Ask: </span>"{example.question}"
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className={`flex justify-center gap-4 mt-8 transition-all duration-500 delay-1000 ${animated ? 'opacity-100' : 'opacity-0'}`}>
-          <button onClick={onPrev} className="px-8 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all">
+        {/* Important Tips */}
+        <div className={`bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6 transition-all duration-700 delay-800 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <h3 className="text-lg font-bold text-yellow-900 mb-3 flex items-center gap-2">
+            💡 Helpful Tips for Better Results
+          </h3>
+          <ul className="space-y-2 text-gray-700">
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <span><span className="font-semibold">Take clear photos:</span> Make sure the image isn't blurry</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <span><span className="font-semibold">Good lighting:</span> Take photos in bright light so text is readable</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <span><span className="font-semibold">Be specific:</span> Instead of "What is this?", ask "What plant is this and how do I care for it?"</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <span><span className="font-semibold">Privacy:</span> Don't upload photos with personal information like credit cards or passwords</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-500 delay-1000 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <button onClick={onPrev} className="px-8 py-4 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all text-lg">
             <ChevronLeft className="inline mr-2" /> Back
           </button>
-          <button onClick={onNext} className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg">
+          <button onClick={onNext} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg text-lg">
             Next: Practice Examples <ChevronRight className="inline ml-2" />
           </button>
         </div>
