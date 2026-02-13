@@ -1155,7 +1155,7 @@ const PracticeSlide = ({ isActive, onPrev }: SlideProps) => {
               Try ChatGPT <ExternalLink className="w-5 h-5" />
             </a>
             <button onClick={() => window.location.reload()} className="px-6 py-3 rounded-full font-semibold border-2 border-white text-white hover:bg-white/10 transition-all">
-              Continue Learning
+              Start Over
             </button>
           </div>
         </div>
@@ -1178,7 +1178,7 @@ const PracticeSlide = ({ isActive, onPrev }: SlideProps) => {
 };
 
 // Slide 10: Safety & Comparison
-const SafetySlide = ({ isActive }: SlideProps) => {
+const SafetySlide = ({ isActive, onNext, onPrev }: SlideProps) => {
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
@@ -1282,8 +1282,8 @@ const SafetySlide = ({ isActive }: SlideProps) => {
             >
               Try ChatGPT <ExternalLink className="w-5 h-5" />
             </a>
-            <button onClick={() => window.location.reload()} className="px-6 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition-all">
-              Start Over
+            <button onClick={onNext} className="px-6 py-3 rounded-full font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg">
+              Continue to Activities <ChevronRight className="inline ml-2" />
             </button>
           </div>
         </div>
@@ -1293,6 +1293,12 @@ const SafetySlide = ({ isActive }: SlideProps) => {
           <p className="flex items-center justify-center gap-2">
             Made with <Heart className="w-4 h-4 text-red-400" /> for learning AI
           </p>
+        </div>
+
+        <div className={`flex justify-center mt-8 transition-all duration-500 delay-900 ${animated ? 'opacity-100' : 'opacity-0'}`}>
+          <button onClick={onPrev} className="px-8 py-4 rounded-full font-semibold border-2 border-white/50 text-white hover:bg-white/10 transition-all text-lg">
+            <ChevronLeft className="inline mr-2" /> Back
+          </button>
         </div>
       </div>
     </div>
