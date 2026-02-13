@@ -103,6 +103,10 @@ const HeroSlide = ({ isActive, onNext }: SlideProps) => {
           Learn to use Google Gemini and ChatGPT with confidence. Ask questions, create custom assistants, use voice and images, and get helpful answers from AI.
         </p>
 
+        <p className={`text-blue-200/80 text-sm font-medium transition-all duration-700 delay-300 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+           Made By Junyu
+        </p>
+
         <div className={`flex flex-wrap justify-center gap-4 transition-all duration-700 delay-400 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
             <Mic className="w-5 h-5 text-blue-200" />
@@ -1163,7 +1167,7 @@ const PracticeSlide = ({ isActive, onPrev }: SlideProps) => {
         {/* Footer */}
         <div className={`text-center mt-10 text-gray-600 transition-all duration-700 delay-1000 ${animated ? 'opacity-100' : 'opacity-0'}`}>
           <p className="flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500" /> for learning AI
+            Made with love <Heart className="w-4 h-4 text-red-500 fill-red-500" />
           </p>
         </div>
 
