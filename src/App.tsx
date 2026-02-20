@@ -1167,7 +1167,7 @@ const PracticeSlide = ({ isActive, onPrev }: SlideProps) => {
         {/* Footer */}
         <div className={`text-center mt-10 text-gray-600 transition-all duration-700 delay-1000 ${animated ? 'opacity-100' : 'opacity-0'}`}>
           <p className="flex items-center justify-center gap-2">
-            Made by Junyu <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+            Made by Junyu
           </p>
         </div>
 
